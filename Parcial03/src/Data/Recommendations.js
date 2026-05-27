@@ -1,0 +1,20 @@
+export const recommendations = [
+    ["Blinding Lights", "Starboy"],
+    ["Blinding Lights", "As It Was"],
+    ["Bad Guy", "Billie Jean"],
+    ["Stay", "Closer"],
+    ["Stay", "Shiver"],
+    ["Perfect", "Shape of My Heart"],
+    ["Perfect", "She Will Be Loved"],
+    ["Flowers", "Rolling in the Deep"],
+    ["Bohemian Rhapsody", "Hotel California"],
+    ["Smells Like Teen Spirit", "In the End"],
+    ["Sweet Child O' Mine", "Don't Stop Believin'"],
+    ["Despacito", "Pepas"],
+    ["Despacito", "Dakiti"],
+    ["Despacito", "Tusa"],
+    ["Dakiti", "Provenza"],
+    ["Radioactive", "Counting Stars"],
+    ["Wake Me Up", "Viva La Vida"],
+    ["Should I Stay or Should I Go", "Shotgun"]
+]

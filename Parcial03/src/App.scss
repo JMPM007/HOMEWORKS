@@ -1,0 +1,216 @@
+$primary: #1db954;
+$primary-hover: #1ed760;
+
+$dark: #0d0d0d;
+$background: #151515;
+
+$card: #1f1f1f;
+$card-hover: #2a2a2a;
+
+$text: #ffffff;
+$gray: #b3b3b3;
+
+@mixin flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin card-style{
+    background: linear-gradient(145deg, #1f1f1f, #181818);
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.4),
+        inset 0 1px 1px rgba(255,255,255,.03);
+    backdrop-filter: blur(10px);
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at top left, #1db95422, transparent 25%),
+        radial-gradient(circle at bottom right, #ffffff08, transparent 20%),
+        $dark;
+    color: $text;
+    font-family: Arial, sans-serif;
+}
+
+.dashboard{
+    width: 100%;
+    min-height: 100vh;
+    padding: 50px 70px;
+    animation: fadeIn .5s ease;
+
+    h1{
+        font-size: 52px;
+        margin-bottom: 30px;
+        background: linear-gradient(to right, #1db954, #8cffb2);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    input{
+        width: 100%;
+        padding: 18px 20px;
+        border: 1px solid transparent;
+        border-radius: 18px;
+        background: #202020;
+        color: white;
+        font-size: 16px;
+        outline: none;
+        margin-bottom: 35px;
+        transition: .3s;
+
+        &:focus{
+            border: 1px solid $primary;
+            box-shadow: 0 0 20px #1db95444;
+        }
+
+        &::placeholder{
+            color: #777;
+        }
+    }
+
+    .container{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+
+    .card{
+        @include card-style;
+        transition: .3s;
+
+        &:hover{
+            transform: translateY(-3px);
+        }
+
+        h2{
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: $primary;
+        }
+    }
+
+    .song{
+        width: 100%;
+        background: $background;
+        padding: 18px;
+        border-radius: 18px;
+        margin-bottom: 14px;
+        cursor: pointer;
+        transition: .25s;
+        border: 1px solid transparent;
+
+        &:hover{
+            background: $card-hover;
+            border: 1px solid #2f2f2f;
+            transform: scale(1.015);
+        }
+
+        p{
+            margin: 0 0 6px 0;
+            font-size: 17px;
+            font-weight: 600;
+        }
+
+        span{
+            color: $gray;
+            font-size: 14px;
+        }
+    }
+
+    .recommendations-card{
+
+        .recommendation-song{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #181818;
+            padding: 16px;
+            border-radius: 18px;
+            margin-bottom: 15px;
+            transition: .25s;
+            border: 1px solid transparent;
+
+            &:hover{
+                transform: translateX(4px);
+                background: #232323;
+                border-color: #2f2f2f;
+            }
+
+            .song-info{
+
+                h3{
+                    margin: 0;
+                    font-size: 17px;
+                }
+
+                p{
+                    margin-top: 5px;
+                    color: $gray;
+                    font-size: 13px;
+                }
+            }
+
+            button{
+                width: 42px;
+                height: 42px;
+                border-radius: 50%;
+                border: none;
+                background: $primary;
+                color: white;
+                cursor: pointer;
+                font-size: 16px;
+                transition: .2s;
+
+                &:hover{
+                    background: $primary-hover;
+                    transform: scale(1.08);
+                }
+            }
+        }
+    }
+
+    .empty{
+        color: #777;
+        text-align: center;
+        margin-top: 30px;
+    }
+}
+
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media(max-width: 900px){
+
+    .dashboard{
+        padding: 35px 25px;
+
+        h1{
+            font-size: 38px;
+        }
+
+        .container{
+            grid-template-columns: 1fr;
+        }
+    }
+}
